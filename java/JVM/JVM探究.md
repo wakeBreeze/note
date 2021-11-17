@@ -10,15 +10,15 @@
 
 ## 1. JVM 的位置
 
-![image-20210125101328151](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20210125101328151.png)
+![image-20210125101328151](F:\编程学习\笔记\Typora\typoraNeed\Typora\typora-user-images\image-20210125101328151.png)
 
 
 
 ## 2. JVM 的体系结构
 
-![image-20210125111546243](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20210125111546243.png)
+![image-20210125111546243](F:\编程学习\笔记\Typora\typoraNeed\Typora\typora-user-images\image-20210125111546243.png)
 
-![image-20210125111742686](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20210125111742686.png)
+![image-20210125111742686](F:\编程学习\笔记\Typora\typoraNeed\Typora\typora-user-images\image-20210125111742686.png)
 
 
 
@@ -38,7 +38,7 @@
 
 
 
-![image-20210125120003742](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20210125120003742.png)
+![image-20210125120003742](F:\编程学习\笔记\Typora\typoraNeed\Typora\typora-user-images\image-20210125120003742.png)
 
 类加载器的级别：
 
@@ -183,7 +183,7 @@ Method Area 方法区
 
 栈满了：StackOverflowError
 
-![image-20210128232555814](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20210128232555814.png)
+![image-20210128232555814](F:\编程学习\笔记\Typora\typoraNeed\Typora\typora-user-images\image-20210128232555814.png)
 
 
 
@@ -215,7 +215,7 @@ Heap，一个JVM只有一个堆内存，堆内存的大小是可以调节的。
 - 养老区 Old
 - 永久区 Perm
 
-![image-20210201102922603](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20210201102922603.png)
+![image-20210201102922603](F:\编程学习\笔记\Typora\typoraNeed\Typora\typora-user-images\image-20210201102922603.png)
 
 GC 垃圾回收主要在：伊甸园区和养老区
 
@@ -235,7 +235,7 @@ GC 垃圾回收主要在：伊甸园区和养老区
 
 ### 11.2.老年代（OldGen）
 
-![image-20210201112653119](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20210201112653119.png)
+![image-20210201112653119](F:\编程学习\笔记\Typora\typoraNeed\Typora\typora-user-images\image-20210201112653119.png)
 
 真相：经过研究，99%的对象都是临时对象！
 
@@ -251,7 +251,7 @@ GC 垃圾回收主要在：伊甸园区和养老区
 - jdk1.7        ：永久代，常量池在堆
 - jdk1.8        ：无永久代，常量池在元空间
 
-![image-20210201114527577](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20210201114527577.png)
+![image-20210201114527577](F:\编程学习\笔记\Typora\typoraNeed\Typora\typora-user-images\image-20210201114527577.png)
 
 元空间逻辑上存在，物理上不存在：YoungGen+OldGen=totalMemory
 
@@ -291,7 +291,7 @@ GC 垃圾回收主要在：伊甸园区和养老区
 
 ## 12. GC
 
-![image-20210202105617920](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20210202105617920.png)
+![image-20210202105617920](F:\编程学习\笔记\Typora\typoraNeed\Typora\typora-user-images\image-20210202105617920.png)
 
 JVM在进行GC时，并不是对 新生代 和 老年代 统一回收，大部分时候，回收都是新生代
 
@@ -340,7 +340,7 @@ GC两种类：轻GC（普通的GC），重GC（全局GC）
 
 每个对象有一个引用计数器，当对象被引用一次则计数器加1，当对象引用失效一次则计数器减1，对于计数器为0得对象意味着是垃圾对象，可以被GC回收。
 
-![image-20210202111830857](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20210202111830857.png)
+![image-20210202111830857](F:\编程学习\笔记\Typora\typoraNeed\Typora\typora-user-images\image-20210202111830857.png)
 
 缺点：循环引用问题。
 
@@ -390,9 +390,9 @@ GC两种类：轻GC（普通的GC），重GC（全局GC）
 
 默认：Eden：from：to=8：1：1
 
-![image-20210202115002724](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20210202115002724.png)
+![image-20210202115002724](F:\编程学习\笔记\Typora\typoraNeed\Typora\typora-user-images\image-20210202115002724.png)
 
-![image-20210202115332618](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20210202115332618.png)
+![image-20210202115332618](F:\编程学习\笔记\Typora\typoraNeed\Typora\typora-user-images\image-20210202115332618.png)
 
 - 好处：没有内存的碎片
 - 坏处：浪费了内存空间：多了一半空间永远时空（to区）。假设100%存活（极端情况），from到to区每次都会移动大量的数据。
@@ -412,7 +412,7 @@ GC两种类：轻GC（普通的GC），重GC（全局GC）
 
 - 第二阶段--**清除：**将遍历堆中所有的对象中没有标记的对象全部清除掉
 
-![image-20210202211617685](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20210202211617685.png)
+![image-20210202211617685](F:\编程学习\笔记\Typora\typoraNeed\Typora\typora-user-images\image-20210202211617685.png)
 
 优点：
 
@@ -430,7 +430,7 @@ GC两种类：轻GC（普通的GC），重GC（全局GC）
 
 在标记清除算法的基础上进行优化
 
-![image-20210202212545505](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20210202212545505.png)
+![image-20210202212545505](F:\编程学习\笔记\Typora\typoraNeed\Typora\typora-user-images\image-20210202212545505.png)
 
 
 
@@ -564,7 +564,7 @@ JMM：（Java Memory Model 的缩写）
 
 JMM 定义了线程工作内存和主内存之间的抽象关系：线程之间的共享变量存储在主内存（Main Memory）中，每个线程都有一个私有的本地内存（Local Memory）
 
-![image-20210202222636296](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20210202222636296.png)
+![image-20210202222636296](F:\编程学习\笔记\Typora\typoraNeed\Typora\typora-user-images\image-20210202222636296.png)
 
 解决共享对象可见性这个问题：volatile
 

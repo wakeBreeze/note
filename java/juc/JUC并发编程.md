@@ -68,7 +68,7 @@ public enum State {
 
 **4、wait/sleep 都需要捕获 `InterruptedException` 异常**
 
-![image-20210122235238378](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20210122235238378.png)
+![image-20210122235238378](F:\编程学习\笔记\Typora\typoraNeed\Typora\typora-user-images\image-20210122235238378.png)
 
 ### 2、Lock锁（重点）
 
@@ -113,9 +113,9 @@ class Ticket{
 
 
 
-![image-20210112163216253](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20210112163216253.png)
+![image-20210112163216253](F:\编程学习\笔记\Typora\typoraNeed\Typora\typora-user-images\image-20210112163216253.png)
 
-![image-20210112163520480](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20210112163520480.png)
+![image-20210112163520480](F:\编程学习\笔记\Typora\typoraNeed\Typora\typora-user-images\image-20210112163520480.png)
 
 公平锁：先来后到
 
@@ -360,7 +360,7 @@ public class Demo01 {
 
 > 问题：A,B,C,D四个线程存在 **虚假唤醒**！
 
-**![image-20210114094836744](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20210114094836744.png)**
+**![image-20210114094836744](F:\编程学习\笔记\Typora\typoraNeed\Typora\typora-user-images\image-20210114094836744.png)**
 
 if 改为 while：
 
@@ -468,7 +468,7 @@ public class Demo01 {
 
 > JUC版的生产者和消费者问题
 
-![image-20210115122047664](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20210115122047664.png)
+![image-20210115122047664](F:\编程学习\笔记\Typora\typoraNeed\Typora\typora-user-images\image-20210115122047664.png)
 
 通过Lock 找到 Condition
 
@@ -1004,7 +1004,7 @@ private static final Object PRESENT = new Object();//常量
 
 ---
 
-![image-20210118080836484](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20210118080836484.png)
+![image-20210118080836484](F:\编程学习\笔记\Typora\typoraNeed\Typora\typora-user-images\image-20210118080836484.png)
 
 1、类似于Runnalble接口
 
@@ -1016,11 +1016,11 @@ private static final Object PRESENT = new Object();//常量
 
 > 代码测试
 
-![image-20210118082503899](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20210118082503899.png)
+![image-20210118082503899](F:\编程学习\笔记\Typora\typoraNeed\Typora\typora-user-images\image-20210118082503899.png)
 
-![image-20210118082723069](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20210118082723069.png)
+![image-20210118082723069](F:\编程学习\笔记\Typora\typoraNeed\Typora\typora-user-images\image-20210118082723069.png)
 
-![image-20210118091308118](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20210118091308118.png)
+![image-20210118091308118](F:\编程学习\笔记\Typora\typoraNeed\Typora\typora-user-images\image-20210118091308118.png)
 
 ```java
 package juc.callable;
@@ -1100,7 +1100,7 @@ class MyRunnable implements Runnable{
 
 > 指定个数线程执行完毕后（即当latch数量为0时）再执行countDownLatch.await（）后的操作
 
-![image-20210118095427037](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20210118095427037.png)
+![image-20210118095427037](F:\编程学习\笔记\Typora\typoraNeed\Typora\typora-user-images\image-20210118095427037.png)
 
 ```java
 package juc.add;
@@ -1148,7 +1148,7 @@ public class CountDownLatchDemo {
 
 
 
-![image-20210118105200712](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20210118105200712.png)
+![image-20210118105200712](F:\编程学习\笔记\Typora\typoraNeed\Typora\typora-user-images\image-20210118105200712.png)
 
 例1：集齐七颗龙珠召唤神龙
 
@@ -1237,7 +1237,7 @@ public class CyclicBarrierDemo {
 
 > 同一时间只能有指定数量线程能执行
 
-![image-20210118105643209](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20210118105643209.png)
+![image-20210118105643209](F:\编程学习\笔记\Typora\typoraNeed\Typora\typora-user-images\image-20210118105643209.png)
 
 示例：抢车位
 
@@ -1293,7 +1293,7 @@ public class SemaphoreDemo {
 
 **ReadWriteLock**
 
-![image-20210118154305401](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20210118154305401.png)
+![image-20210118154305401](F:\编程学习\笔记\Typora\typoraNeed\Typora\typora-user-images\image-20210118154305401.png)
 
 例：
 
@@ -1405,17 +1405,17 @@ class MyCache2{
 
 ---
 
-![image-20210118170725250](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20210118170725250.png)
+![image-20210118170725250](F:\编程学习\笔记\Typora\typoraNeed\Typora\typora-user-images\image-20210118170725250.png)
 
 队列：
 
-![image-20210118170305722](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20210118170305722.png)
+![image-20210118170305722](F:\编程学习\笔记\Typora\typoraNeed\Typora\typora-user-images\image-20210118170305722.png)
 
 写入：如果队列满了，必须阻塞等待读取
 
 读取：如果队列空了，必须阻塞等待写入
 
-![image-20210118164751228](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20210118164751228.png)
+![image-20210118164751228](F:\编程学习\笔记\Typora\typoraNeed\Typora\typora-user-images\image-20210118164751228.png)
 
 **BlockingQueue**
 
@@ -1667,7 +1667,7 @@ public static ExecutorService newCachedThreadPool() {
 
 
 
-![image-20210119104214095](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20210119104214095.png)
+![image-20210119104214095](F:\编程学习\笔记\Typora\typoraNeed\Typora\typora-user-images\image-20210119104214095.png)
 
 ```java
 package juc.pool;
@@ -1788,9 +1788,9 @@ public ThreadPoolExecutor(int corePoolSize,//核心线程池大小
     }
 ```
 
-![image-20210119142532623](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20210119142532623.png)
+![image-20210119142532623](F:\编程学习\笔记\Typora\typoraNeed\Typora\typora-user-images\image-20210119142532623.png)
 
-![image-20210119144254867](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20210119144254867.png)
+![image-20210119144254867](F:\编程学习\笔记\Typora\typoraNeed\Typora\typora-user-images\image-20210119144254867.png)
 
 
 
@@ -2011,13 +2011,13 @@ public interface Runnable {
 
 
 
-![image-20210119213252222](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20210119213252222.png)
+![image-20210119213252222](F:\编程学习\笔记\Typora\typoraNeed\Typora\typora-user-images\image-20210119213252222.png)
 
 
 
 ####  11.1、Function 函数式接口
 
-![image-20210119230143338](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20210119230143338.png)
+![image-20210119230143338](F:\编程学习\笔记\Typora\typoraNeed\Typora\typora-user-images\image-20210119230143338.png)
 
 ```java
 package juc.function;
@@ -2049,7 +2049,7 @@ public class FunctionDemo {
 
 #### 11.2、Predicate 断定型接口
 
-![image-20210119235354405](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20210119235354405.png)
+![image-20210119235354405](F:\编程学习\笔记\Typora\typoraNeed\Typora\typora-user-images\image-20210119235354405.png)
 
 ```java
 package juc.function;
@@ -2079,7 +2079,7 @@ public class PredicateDemo {
 
 ####  11.3、Consumer 消费型接口
 
-![image-20210119233434066](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20210119233434066.png)
+![image-20210119233434066](F:\编程学习\笔记\Typora\typoraNeed\Typora\typora-user-images\image-20210119233434066.png)
 
 ```java
 package juc.function;
@@ -2109,7 +2109,7 @@ public class ConsumerDemo {
 
 #### 11.4、Supplier 供给型接口
 
-![image-20210119234016021](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20210119234016021.png)
+![image-20210119234016021](F:\编程学习\笔记\Typora\typoraNeed\Typora\typora-user-images\image-20210119234016021.png)
 
 ```java
 package juc.function;
@@ -2145,7 +2145,7 @@ public class SupplierDemo {
 
 计算都应该交给流来操作！
 
-![image-20210120093442133](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20210120093442133.png)
+![image-20210120093442133](F:\编程学习\笔记\Typora\typoraNeed\Typora\typora-user-images\image-20210120093442133.png)
 
 ```java
 package juc.stream;
@@ -2201,33 +2201,33 @@ ForkJoin 在 JDK1.7，并行执行任务！提高效率。大数据量！
 
 大数据：MapReduce（把大任务拆分为小任务）
 
-![image-20210120110003873](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20210120110003873.png)
+![image-20210120110003873](F:\编程学习\笔记\Typora\typoraNeed\Typora\typora-user-images\image-20210120110003873.png)
 
 > ForkJoin 特点：工作窃取
 
 这里面维护的都是双端队列
 
-![image-20210120110323942](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20210120110323942.png)
+![image-20210120110323942](F:\编程学习\笔记\Typora\typoraNeed\Typora\typora-user-images\image-20210120110323942.png)
 
 > ForkJoin 执行流程
 
 ==**ForkJoinPool：**==
 
-![image-20210120113906524](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20210120113906524.png)
+![image-20210120113906524](F:\编程学习\笔记\Typora\typoraNeed\Typora\typora-user-images\image-20210120113906524.png)
 
-![image-20210120112341167](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20210120112341167.png)
+![image-20210120112341167](F:\编程学习\笔记\Typora\typoraNeed\Typora\typora-user-images\image-20210120112341167.png)
 
 
 
 ==**ForkJoinTask：**==
 
-![image-20210120112745659](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20210120112745659.png)
+![image-20210120112745659](F:\编程学习\笔记\Typora\typoraNeed\Typora\typora-user-images\image-20210120112745659.png)
 
 
 
 ==**RecursiveTask：**==递归任务
 
-![image-20210120113310742](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20210120113310742.png)
+![image-20210120113310742](F:\编程学习\笔记\Typora\typoraNeed\Typora\typora-user-images\image-20210120113310742.png)
 
 **代码：**
 
@@ -2364,7 +2364,7 @@ public class Test {
 
 > Future 设计的初衷：对将来的某个事件的结果进行建模
 
-![image-20210121184450982](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20210121184450982.png)
+![image-20210121184450982](F:\编程学习\笔记\Typora\typoraNeed\Typora\typora-user-images\image-20210121184450982.png)
 
 ```java
 package juc.future;
@@ -2500,7 +2500,7 @@ JMM：Java内存模型，不存在的东西，概念！约定！
 
 8种内存交互操作：
 
-![image-20210122095705576](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20210122095705576.png)
+![image-20210122095705576](F:\编程学习\笔记\Typora\typoraNeed\Typora\typora-user-images\image-20210122095705576.png)
 
 **内存交互操作:**
 
@@ -2530,7 +2530,7 @@ JMM：Java内存模型，不存在的东西，概念！约定！
 
 **问题：**程序不知道主内存中的值已经被修改过了
 
-![image-20210122101151311](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20210122101151311.png)
+![image-20210122101151311](F:\编程学习\笔记\Typora\typoraNeed\Typora\typora-user-images\image-20210122101151311.png)
 
 **扩展：**为什么synchronized关键字**不能禁止 指令重排**，却能保证**有序性**？
 
@@ -2606,13 +2606,13 @@ public class VolatileDemo02 {
 
 **如果不加 lock 和 synchronized ，怎么保证原子性**
 
-![image-20210122105311311](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20210122105311311.png)
+![image-20210122105311311](F:\编程学习\笔记\Typora\typoraNeed\Typora\typora-user-images\image-20210122105311311.png)
 
 
 
 > 使用 ==**原子类**==，解决原子性问题
 
-![image-20210122110359728](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20210122110359728.png)
+![image-20210122110359728](F:\编程学习\笔记\Typora\typoraNeed\Typora\typora-user-images\image-20210122110359728.png)
 
 ```java
 package juc.volatileTest;
@@ -2699,7 +2699,7 @@ y = x * x; //4
 
 2、可以保证某些变量的内存可见性（利用这些特性 volatile 实现了可见性）
 
-![image-20210122115914981](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20210122115914981.png)
+![image-20210122115914981](F:\编程学习\笔记\Typora\typoraNeed\Typora\typora-user-images\image-20210122115914981.png)
 
 volatile 是可以保持 可见性。不能保证原子性。由于内存屏障，可以保证避免指令重排的现象产生！
 
@@ -2956,11 +2956,11 @@ public final class EnumSingleton extends Enum
 
 > Unsafe类
 
-![image-20210122180058433](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20210122180058433.png)
+![image-20210122180058433](F:\编程学习\笔记\Typora\typoraNeed\Typora\typora-user-images\image-20210122180058433.png)
 
-![image-20210122180622301](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20210122180622301.png)
+![image-20210122180622301](F:\编程学习\笔记\Typora\typoraNeed\Typora\typora-user-images\image-20210122180622301.png)
 
-![image-20210122181341843](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20210122181341843.png)
+![image-20210122181341843](F:\编程学习\笔记\Typora\typoraNeed\Typora\typora-user-images\image-20210122181341843.png)
 
 CAS：比较当前工作内存中的值和主内存中的值，如果这个值是期望的，则执行操作！如果不是就一直循环！（底层是自旋锁）
 
@@ -2988,7 +2988,7 @@ JDK 1.5 以后的 `AtomicStampedReference 类`就提供了此种能力，其中�
 
 > CAS：ABA问题（狸猫换太子）
 
-![image-20210122184534203](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20210122184534203.png)
+![image-20210122184534203](F:\编程学习\笔记\Typora\typoraNeed\Typora\typora-user-images\image-20210122184534203.png)
 
 ```java
 package juc.cas;
@@ -3095,7 +3095,7 @@ public class CASDemo02 {
 
 **Integer 使用了对象缓存机制，默认范围是 -128~127，推荐使用静态工厂方法 valueOf 获取对象实例，而不是new，因为valueOf使用缓存，而 new 一定会创建新的对象分配新的内存空间。**
 
-![image-20210122231927729](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20210122231927729.png)
+![image-20210122231927729](F:\编程学习\笔记\Typora\typoraNeed\Typora\typora-user-images\image-20210122231927729.png)
 
 
 
@@ -3125,7 +3125,7 @@ public ReentrantLock(boolean fair) {
 
 可重入锁（递归锁）：可重入就是说某个线程已经获得了某个锁，可以再次获取锁而不会出现死锁。
 
-![image-20210123002748994](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20210123002748994.png)
+![image-20210123002748994](F:\编程学习\笔记\Typora\typoraNeed\Typora\typora-user-images\image-20210123002748994.png)
 
 ```java
 package juc.lock.SynchronizedDemo;
@@ -3344,7 +3344,7 @@ class Test{
 
 #### 20.3、自旋锁
 
-![image-20210124161820442](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20210124161820442.png)
+![image-20210124161820442](F:\编程学习\笔记\Typora\typoraNeed\Typora\typora-user-images\image-20210124161820442.png)
 
 自定义锁测试
 
@@ -3426,7 +3426,7 @@ class Test{
 
 - **循环等待条件：**若干进程形成一种头尾相接的循环等待资源的关系
 
-![image-20210124174137948](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20210124174137948.png)
+![image-20210124174137948](F:\编程学习\笔记\Typora\typoraNeed\Typora\typora-user-images\image-20210124174137948.png)
 
 死锁测试，怎么排除死锁：
 
@@ -3471,13 +3471,13 @@ class MyThread implements Runnable{
 
 1、使用 **`jps -l`** 定位进程号
 
-![image-20210124180401189](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20210124180401189.png)
+![image-20210124180401189](F:\编程学习\笔记\Typora\typoraNeed\Typora\typora-user-images\image-20210124180401189.png)
 
 2、使用 **`jstack 进程号`** 找到死锁问题
 
-![image-20210124180527400](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20210124180527400.png)
+![image-20210124180527400](F:\编程学习\笔记\Typora\typoraNeed\Typora\typora-user-images\image-20210124180527400.png)
 
-![image-20210124180713126](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20210124180713126.png)
+![image-20210124180713126](F:\编程学习\笔记\Typora\typoraNeed\Typora\typora-user-images\image-20210124180713126.png)
 
 
 

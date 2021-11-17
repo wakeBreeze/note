@@ -23,7 +23,7 @@ Maven会规定好你该如何去编写我们的Java代码，必须要按照这�
 
 官网;https://maven.apache.org/
 
-![image-20210222180353974](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20210222180353974.png)
+![image-20210222180353974](F:\编程学习\笔记\Typora\typoraNeed\Typora\typora-user-images\image-20210222180353974.png)
 
 下载完成后，解压即可；
 小狂神友情建议：电脑上的所有环境都放在一个文件夹下，方便管理；
@@ -78,25 +78,25 @@ Maven会规定好你该如何去编写我们的Java代码，必须要按照这�
 1. 启动IDEA 
 2. 2. 创建一个MavenWeb项目
 
-![image-20210224130704018](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20210224130704018.png)
+![image-20210224130704018](F:\编程学习\笔记\Typora\typoraNeed\Typora\typora-user-images\image-20210224130704018.png)
 
-![image-20210224130734167](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20210224130734167.png)
+![image-20210224130734167](F:\编程学习\笔记\Typora\typoraNeed\Typora\typora-user-images\image-20210224130734167.png)
 
-![image-20210224130803185](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20210224130803185.png)
+![image-20210224130803185](F:\编程学习\笔记\Typora\typoraNeed\Typora\typora-user-images\image-20210224130803185.png)
 
 3. 等待项目初始化完毕
 
-![image-20210224130853215](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20210224130853215.png)
+![image-20210224130853215](F:\编程学习\笔记\Typora\typoraNeed\Typora\typora-user-images\image-20210224130853215.png)
 
-![image-20210224130921303](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20210224130921303.png)
+![image-20210224130921303](F:\编程学习\笔记\Typora\typoraNeed\Typora\typora-user-images\image-20210224130921303.png)
 
 4. 观察maven仓库中多了什么东西？
 5. IDEA中的Maven设置 
 	注意：IDEA项目创建成功后，看一眼Maven的配置
 
-![image-20210224131238988](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20210224131238988.png)
+![image-20210224131238988](F:\编程学习\笔记\Typora\typoraNeed\Typora\typora-user-images\image-20210224131238988.png)
 
-![image-20210224131304885](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20210224131304885.png)
+![image-20210224131304885](F:\编程学习\笔记\Typora\typoraNeed\Typora\typora-user-images\image-20210224131304885.png)
 
 6. 到这里，Maven在IDEA中的配置和使用就OK了! 
 
@@ -104,49 +104,49 @@ Maven会规定好你该如何去编写我们的Java代码，必须要按照这�
 
 ### 5.7、创建一个普通的Maven项目
 
-![image-20210224131501754](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20210224131501754.png)
+![image-20210224131501754](F:\编程学习\笔记\Typora\typoraNeed\Typora\typora-user-images\image-20210224131501754.png)
 
-![image-20210224131550379](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20210224131550379.png)
+![image-20210224131550379](F:\编程学习\笔记\Typora\typoraNeed\Typora\typora-user-images\image-20210224131550379.png)
 
 
 
 这个只有在Web应用下才会有！
 
-![image-20210224131631454](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20210224131631454.png)
+![image-20210224131631454](F:\编程学习\笔记\Typora\typoraNeed\Typora\typora-user-images\image-20210224131631454.png)
 
 
 
 ### 5.8 标记文件夹功能
 
-![image-20210224131827715](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20210224131827715.png)
+![image-20210224131827715](F:\编程学习\笔记\Typora\typoraNeed\Typora\typora-user-images\image-20210224131827715.png)
 
-![image-20210224131847006](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20210224131847006.png)
+![image-20210224131847006](F:\编程学习\笔记\Typora\typoraNeed\Typora\typora-user-images\image-20210224131847006.png)
 
-![image-20210224131910870](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20210224131910870.png)
+![image-20210224131910870](F:\编程学习\笔记\Typora\typoraNeed\Typora\typora-user-images\image-20210224131910870.png)
 
-![image-20210224132029255](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20210224132029255.png)
+![image-20210224132029255](F:\编程学习\笔记\Typora\typoraNeed\Typora\typora-user-images\image-20210224132029255.png)
 
 
 
 ### 5.9 在 IDEA中配置Tomcat
 
-![image-20210224132116629](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20210224132116629.png)
+![image-20210224132116629](F:\编程学习\笔记\Typora\typoraNeed\Typora\typora-user-images\image-20210224132116629.png)
 
-![image-20210224132148475](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20210224132148475.png)
+![image-20210224132148475](F:\编程学习\笔记\Typora\typoraNeed\Typora\typora-user-images\image-20210224132148475.png)
 
-![image-20210224132212672](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20210224132212672.png)
+![image-20210224132212672](F:\编程学习\笔记\Typora\typoraNeed\Typora\typora-user-images\image-20210224132212672.png)
 
-![image-20210224132241003](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20210224132241003.png)
+![image-20210224132241003](F:\编程学习\笔记\Typora\typoraNeed\Typora\typora-user-images\image-20210224132241003.png)
 
 解决警告问题 必须要的配置：
 
 为什么会有这个问题：我们访问一个网站，需要指定一个文件夹名字；
 
-![image-20210224132352435](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20210224132352435.png)
+![image-20210224132352435](F:\编程学习\笔记\Typora\typoraNeed\Typora\typora-user-images\image-20210224132352435.png)
 
-![image-20210224132430123](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20210224132430123.png)
+![image-20210224132430123](F:\编程学习\笔记\Typora\typoraNeed\Typora\typora-user-images\image-20210224132430123.png)
 
-![image-20210224132503391](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20210224132503391.png)
+![image-20210224132503391](F:\编程学习\笔记\Typora\typoraNeed\Typora\typora-user-images\image-20210224132503391.png)
 
 
 
@@ -154,7 +154,7 @@ Maven会规定好你该如何去编写我们的Java代码，必须要按照这�
 
 pom.xml 是Maven的核心配置文件
 
-![image-20210224132725055](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20210224132725055.png)
+![image-20210224132725055](F:\编程学习\笔记\Typora\typoraNeed\Typora\typora-user-images\image-20210224132725055.png)
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -244,7 +244,7 @@ pom.xml 是Maven的核心配置文件
 
 ```
 
-![image-20210224133439067](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20210224133439067.png)
+![image-20210224133439067](F:\编程学习\笔记\Typora\typoraNeed\Typora\typora-user-images\image-20210224133439067.png)
 
 
 
@@ -280,9 +280,9 @@ maven由于他的约定大于配置，我们之后可以能遇到我们写的配
 
 ### 5.12 IDEA操作
 
-![image-20210224133818035](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20210224133818035.png)
+![image-20210224133818035](F:\编程学习\笔记\Typora\typoraNeed\Typora\typora-user-images\image-20210224133818035.png)
 
-![image-20210224133848278](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20210224133848278.png)
+![image-20210224133848278](F:\编程学习\笔记\Typora\typoraNeed\Typora\typora-user-images\image-20210224133848278.png)
 
 
 
@@ -291,7 +291,7 @@ maven由于他的约定大于配置，我们之后可以能遇到我们写的配
 1. Maven 3.6.2 
 	解决方法：降级为3.6.1
 	
-	​	![image-20210224134041444](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20210224134041444.png)
+	​	![image-20210224134041444](F:\编程学习\笔记\Typora\typoraNeed\Typora\typora-user-images\image-20210224134041444.png)
 	
 2. Tomcat闪退
 
@@ -300,14 +300,14 @@ maven由于他的约定大于配置，我们之后可以能遇到我们写的配
 3. IDEA中每次都要重复配置Maven 
 	在IDEA中的全局默认配置中去配置
 
-![image-20210224134215477](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20210224134215477.png)
+![image-20210224134215477](F:\编程学习\笔记\Typora\typoraNeed\Typora\typora-user-images\image-20210224134215477.png)
 
-![image-20210224134244978](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20210224134244978.png)
+![image-20210224134244978](F:\编程学习\笔记\Typora\typoraNeed\Typora\typora-user-images\image-20210224134244978.png)
 
 4. Maven项目中Tomcat无法配置 
 5. maven默认web项目中的web.xml版本问题
 
-![image-20210224134349552](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20210224134349552.png)
+![image-20210224134349552](F:\编程学习\笔记\Typora\typoraNeed\Typora\typora-user-images\image-20210224134349552.png)
 
 6. 替换为webapp4.0版本和tomcat一致
 
@@ -326,10 +326,10 @@ maven由于他的约定大于配置，我们之后可以能遇到我们写的配
 7. Maven仓库的使用 
 	地址：[https://mvnrepository.com/](https://mvnrepository.com/)
 
-![image-20210224134655991](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20210224134655991.png)
+![image-20210224134655991](F:\编程学习\笔记\Typora\typoraNeed\Typora\typora-user-images\image-20210224134655991.png)
 
-![image-20210224134711144](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20210224134711144.png)
+![image-20210224134711144](F:\编程学习\笔记\Typora\typoraNeed\Typora\typora-user-images\image-20210224134711144.png)
 
-![image-20210224134746555](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20210224134746555.png)
+![image-20210224134746555](F:\编程学习\笔记\Typora\typoraNeed\Typora\typora-user-images\image-20210224134746555.png)
 
-![image-20210224134804110](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20210224134804110.png)
+![image-20210224134804110](F:\编程学习\笔记\Typora\typoraNeed\Typora\typora-user-images\image-20210224134804110.png)

@@ -1,4 +1,4 @@
-​	HTML + CSS +JavaScript
+	HTML + CSS +JavaScript
 
    结构 + 表现 + 交互
 
@@ -34,7 +34,7 @@ CSS：表现（美化网页）
 
 字体，颜色，边距，高度，宽度，背景图片，网页定位，网页浮动……
 
-![image-20210204150435534](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20210204150435534.png)
+![image-20210204150435534](F:\编程学习\笔记\Typora\typoraNeed\Typora\typora-user-images\image-20210204150435534.png)
 
 
 
@@ -56,7 +56,7 @@ CSS 3.0	圆角，阴影，动画……	浏览器兼容性~
 
 练习格式：
 
-![image-20210204152459639](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20210204152459639.png)
+![image-20210204152459639](F:\编程学习\笔记\Typora\typoraNeed\Typora\typora-user-images\image-20210204152459639.png)
 
 
 
@@ -98,7 +98,7 @@ CSS 3.0	圆角，阴影，动画……	浏览器兼容性~
 
 建议使用这种规范：
 
-![image-20210204154408056](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20210204154408056.png)
+![image-20210204154408056](F:\编程学习\笔记\Typora\typoraNeed\Typora\typora-user-images\image-20210204154408056.png)
 
 
 
@@ -424,7 +424,7 @@ body>p{
 </html>
 ```
 
-![image-20210204231904992](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20210204231904992.png)
+![image-20210204231904992](F:\编程学习\笔记\Typora\typoraNeed\Typora\typora-user-images\image-20210204231904992.png)
 
 
 
@@ -762,7 +762,7 @@ span标签：重点要突出的字，用span标签套起来
 </html>
 ```
 
-![image-20210205180356630](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20210205180356630.png)
+![image-20210205180356630](F:\编程学习\笔记\Typora\typoraNeed\Typora\typora-user-images\image-20210205180356630.png)
 
 
 
@@ -849,7 +849,7 @@ ul>li{
 
 练习：
 
-![image-20210205215817772](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20210205215817772.png)
+![image-20210205215817772](F:\编程学习\笔记\Typora\typoraNeed\Typora\typora-user-images\image-20210205215817772.png)
 
 
 
@@ -868,7 +868,7 @@ background-image: linear-gradient(0deg, #FFDEE9 0%, #B5FFFC 100%);
 
 ### 4.1、什么是盒子模型
 
-![image-20210205225255523](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20210205225255523.png)
+![image-20210205225255523](F:\编程学习\笔记\Typora\typoraNeed\Typora\typora-user-images\image-20210205225255523.png)
 
 - margin：外边距
 - border：边框
@@ -918,7 +918,7 @@ padding: 5px 10px 15px 20px;
 
 盒子的计算方式：元素到底多大？
 
-![image-20210206110828884](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20210206110828884.png)
+![image-20210206110828884](F:\编程学习\笔记\Typora\typoraNeed\Typora\typora-user-images\image-20210206110828884.png)
 
 元素大小 = margin + border + padding + 内容大小
 
@@ -973,7 +973,7 @@ border-radius: 50px 100px 50px 100px;
 </html>
 ```
 
-![image-20210206120813601](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20210206120813601.png)
+![image-20210206120813601](F:\编程学习\笔记\Typora\typoraNeed\Typora\typora-user-images\image-20210206120813601.png)
 
 
 
@@ -1010,7 +1010,7 @@ border-radius: 50px 100px 50px 100px;
 </html>
 ```
 
-![image-20210206123029562](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20210206123029562.png)
+![image-20210206123029562](F:\编程学习\笔记\Typora\typoraNeed\Typora\typora-user-images\image-20210206123029562.png)
 
 
 
@@ -1099,7 +1099,7 @@ display 也是一种实现行内元素排列的方式，但是我们很多情况
 
 ### 5.3、float
 
-![image-20210206161326876](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20210206161326876.png)
+![image-20210206161326876](F:\编程学习\笔记\Typora\typoraNeed\Typora\typora-user-images\image-20210206161326876.png)
 
 - float: left  向左浮动
 - float: right  向右浮动
@@ -1219,7 +1219,7 @@ div{
 
 在浮动元素的父级设置overflow
 
-![image-20210206173755452](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20210206173755452.png)
+![image-20210206173755452](F:\编程学习\笔记\Typora\typoraNeed\Typora\typora-user-images\image-20210206173755452.png)
 
 ```css
 #father{
@@ -1267,7 +1267,7 @@ div{
 
 ## 6、定位
 
-![image-20210208220420437](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20210208220420437.png)
+![image-20210208220420437](F:\编程学习\笔记\Typora\typoraNeed\Typora\typora-user-images\image-20210208220420437.png)
 
 ### 6.1、相对定位
 
@@ -1344,7 +1344,7 @@ div{
 
 题目：
 
-![image-20210207000408045](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20210207000408045.png)
+![image-20210207000408045](F:\编程学习\笔记\Typora\typoraNeed\Typora\typora-user-images\image-20210207000408045.png)
 
 解答：
 
@@ -1457,7 +1457,7 @@ right: 0px;
 left: 0px;
 ```
 
-![image-20210208214031691](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20210208214031691.png)
+![image-20210208214031691](F:\编程学习\笔记\Typora\typoraNeed\Typora\typora-user-images\image-20210208214031691.png)
 
 
 
@@ -1514,7 +1514,7 @@ clip 属性剪裁绝对定位和固定定位元素。
 
 这个属性用于定义一个剪裁矩形。对于一个绝对定义元素，在这个矩形内的内容才可见。出了这个剪裁区域的内容会根据 overflow 的值来处理。剪裁区域可能比元素的内容区大，也可能比内容区小。
 
-![image-20210208221609045](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20210208221609045.png)
+![image-20210208221609045](F:\编程学习\笔记\Typora\typoraNeed\Typora\typora-user-images\image-20210208221609045.png)
 
 ```html
 <!DOCTYPE html>
@@ -1551,7 +1551,7 @@ z-index 属性设置元素的堆叠顺序。拥有更高堆叠顺序的元素总
 
 **注意：z-index 仅能在定位元素上奏效**
 
-![image-20210208224930950](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20210208224930950.png)
+![image-20210208224930950](F:\编程学习\笔记\Typora\typoraNeed\Typora\typora-user-images\image-20210208224930950.png)
 
 ```html
 <!DOCTYPE html>

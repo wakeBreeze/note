@@ -2,7 +2,7 @@
 
 **W3C：**World Wide Web Consortium(万维网联盟)
 
-![image-20210203173119490](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20210203173119490.png)
+![image-20210203173119490](F:\编程学习\笔记\Typora\typoraNeed\Typora\typora-user-images\image-20210203173119490.png)
 
 ## 基本标签
 
@@ -43,15 +43,15 @@
 - PNG
 - BMP：位图
 
-![image-20210203182227703](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20210203182227703.png)
+![image-20210203182227703](F:\编程学习\笔记\Typora\typoraNeed\Typora\typora-user-images\image-20210203182227703.png)
 
 
 
 ## 链接标签
 
-![image-20210203182555658](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20210203182555658.png)
+![image-20210203182555658](F:\编程学习\笔记\Typora\typoraNeed\Typora\typora-user-images\image-20210203182555658.png)
 
-![image-20210203183711388](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20210203183711388.png)
+![image-20210203183711388](F:\编程学习\笔记\Typora\typoraNeed\Typora\typora-user-images\image-20210203183711388.png)
 
 **锚链接：**
 
@@ -85,13 +85,13 @@ QQ链接
 
 ## 行内元素和块元素
 
-![image-20210203200801280](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20210203200801280.png)
+![image-20210203200801280](F:\编程学习\笔记\Typora\typoraNeed\Typora\typora-user-images\image-20210203200801280.png)
 
 
 
 ## 列表
 
-![image-20210203201108880](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20210203201108880.png)
+![image-20210203201108880](F:\编程学习\笔记\Typora\typoraNeed\Typora\typora-user-images\image-20210203201108880.png)
 
 ```html
 <!--有序列表order list
@@ -144,7 +144,7 @@ dd：列表内容
 
 ## 表格标签
 
-![image-20210203202902590](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20210203202902590.png)
+![image-20210203202902590](F:\编程学习\笔记\Typora\typoraNeed\Typora\typora-user-images\image-20210203202902590.png)
 
 ```html
 <!--表格table
@@ -212,13 +212,13 @@ autoplay：自动播放
 
 ## 页面结构分析
 
-![image-20210203215509102](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20210203215509102.png)
+![image-20210203215509102](F:\编程学习\笔记\Typora\typoraNeed\Typora\typora-user-images\image-20210203215509102.png)
 
 
 
 ## iframe内联框架
 
-![image-20210203220319817](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20210203220319817.png)
+![image-20210203220319817](F:\编程学习\笔记\Typora\typoraNeed\Typora\typora-user-images\image-20210203220319817.png)
 
 ```html
 <a href="https://www.cnblogs.com/code-xu/" target="mine">点击跳转到我的博客</a>
@@ -251,9 +251,9 @@ scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="tru
 - 列表框、文本域和文件域  select-option、textarea、input type="file"
 - 搜索框、滑块和简单验证  input type="search"、input type="range"
 
-![image-20210203224944773](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20210203224944773.png)
+![image-20210203224944773](F:\编程学习\笔记\Typora\typoraNeed\Typora\typora-user-images\image-20210203224944773.png)
 
-![image-20210203231309913](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20210203231309913.png)
+![image-20210203231309913](F:\编程学习\笔记\Typora\typoraNeed\Typora\typora-user-images\image-20210203231309913.png)
 
 
 
@@ -415,6 +415,6 @@ method：get，post 提交方式
 
 **表单的应用**
 
-![image-20210204102746112](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20210204102746112.png)
+![image-20210204102746112](F:\编程学习\笔记\Typora\typoraNeed\Typora\typora-user-images\image-20210204102746112.png)
 
-![image-20210204104857209](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20210204104857209.png)
+![image-20210204104857209](F:\编程学习\笔记\Typora\typoraNeed\Typora\typora-user-images\image-20210204104857209.png)

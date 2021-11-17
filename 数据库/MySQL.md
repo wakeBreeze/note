@@ -226,7 +226,7 @@ SHOW DATABASES;	-- 查看所有的数据库
 
 对比SQLyog 的可视化操作
 
-![image-20210210084341951](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20210210084341951.png)
+![image-20210210084341951](F:\编程学习\笔记\Typora\typoraNeed\Typora\typora-user-images\image-20210210084341951.png)
 
 学习思路：
 
@@ -612,7 +612,7 @@ FROM table_name [as table_alias]
 
 导入素材提供的SQL
 
-![image-20210217162040652](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20210217162040652.png)
+![image-20210217162040652](F:\编程学习\笔记\Typora\typoraNeed\Typora\typora-user-images\image-20210217162040652.png)
 
 
 
@@ -825,9 +825,9 @@ WHERE Address='' OR Address IS NULL;
 | LEFT JOIN  | 即使右表中没有匹配，也从左表中返回所有的行 |
 | RIGHT JOIN | 即使左表中没有匹配，也从右表中返回所有的行 |
 
-![image-20210218193542587](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20210218193542587.png)
+![image-20210218193542587](F:\编程学习\笔记\Typora\typoraNeed\Typora\typora-user-images\image-20210218193542587.png)
 
-![image-20210218193557567](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20210218193557567.png)
+![image-20210218193557567](F:\编程学习\笔记\Typora\typoraNeed\Typora\typora-user-images\image-20210218193557567.png)
 
 测试
 
@@ -959,7 +959,7 @@ CREATE TABLE `test` (
 ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8
 ```
 
-![image-20210217084134696](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20210217084134696.png)
+![image-20210217084134696](F:\编程学习\笔记\Typora\typoraNeed\Typora\typora-user-images\image-20210217084134696.png)
 
 
 
@@ -975,7 +975,7 @@ PRIMARY KEY (`id`)
 )ENGINE=INNODB DEFAULT CHARSET=utf8
 ```
 
-![image-20210217084331133](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20210217084331133.png)
+![image-20210217084331133](F:\编程学习\笔记\Typora\typoraNeed\Typora\typora-user-images\image-20210217084331133.png)
 
 
 
@@ -988,7 +988,7 @@ LEFT JOIN test1
 ON test.`name`=test1.`name`;
 ```
 
-![image-20210217084459995](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20210217084459995.png)
+![image-20210217084459995](F:\编程学习\笔记\Typora\typoraNeed\Typora\typora-user-images\image-20210217084459995.png)
 
 
 
@@ -1001,7 +1001,7 @@ RIGHT JOIN test1
 ON test.`name`=test1.`name`;
 ```
 
-![image-20210217084740969](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20210217084740969.png)
+![image-20210217084740969](F:\编程学习\笔记\Typora\typoraNeed\Typora\typora-user-images\image-20210217084740969.png)
 
 
 
@@ -1014,7 +1014,7 @@ INNER JOIN test1
 ON test.`name`=test1.`name`;
 ```
 
-![image-20210217084906143](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20210217084906143.png)
+![image-20210217084906143](F:\编程学习\笔记\Typora\typoraNeed\Typora\typora-user-images\image-20210217084906143.png)
 
 
 
@@ -1024,7 +1024,7 @@ ON test.`name`=test1.`name`;
 
 表category：
 
-![image-20210217091840837](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20210217091840837.png)
+![image-20210217091840837](F:\编程学习\笔记\Typora\typoraNeed\Typora\typora-user-images\image-20210217091840837.png)
 
 拆分为两个表：
 
@@ -1065,7 +1065,7 @@ INNER JOIN category c2
 ON c1.`categoryid`=c2.`pid`
 ```
 
-![image-20210217140400563](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20210217140400563.png)
+![image-20210217140400563](F:\编程学习\笔记\Typora\typoraNeed\Typora\typora-user-images\image-20210217140400563.png)
 
 
 
@@ -1090,7 +1090,7 @@ FROM tb_book
 ORDER BY price DESC
 ```
 
-![image-20210217144024084](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20210217144024084.png)
+![image-20210217144024084](F:\编程学习\笔记\Typora\typoraNeed\Typora\typora-user-images\image-20210217144024084.png)
 
 
 
@@ -1122,7 +1122,7 @@ ORDER BY price DESC
 LIMIT 0,5
 ```
 
-![image-20210217145347537](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20210217145347537.png)
+![image-20210217145347537](F:\编程学习\笔记\Typora\typoraNeed\Typora\typora-user-images\image-20210217145347537.png)
 
 
 
@@ -1134,7 +1134,7 @@ ORDER BY price DESC
 LIMIT 5,5
 ```
 
-![image-20210217150206074](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20210217150206074.png)
+![image-20210217150206074](F:\编程学习\笔记\Typora\typoraNeed\Typora\typora-user-images\image-20210217150206074.png)
 
 
 
@@ -1161,11 +1161,11 @@ LIMIT 5,5
 
 表：tb_address
 
-![image-20210217154515533](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20210217154515533.png)
+![image-20210217154515533](F:\编程学习\笔记\Typora\typoraNeed\Typora\typora-user-images\image-20210217154515533.png)
 
 表：tb_user
 
-![image-20210217154557902](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20210217154557902.png)
+![image-20210217154557902](F:\编程学习\笔记\Typora\typoraNeed\Typora\typora-user-images\image-20210217154557902.png)
 
 ```mysql
 -- 子查询
@@ -1176,13 +1176,13 @@ WHERE user_id IN (SELECT phone FROM tb_user WHERE uname='user01')
 
 查询结果：
 
-![image-20210217154653776](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20210217154653776.png)
+![image-20210217154653776](F:\编程学习\笔记\Typora\typoraNeed\Typora\typora-user-images\image-20210217154653776.png)
 
 
 
 **题目：查询 高等数学-2 成绩大于80 的学生（学号，姓名）**
 
-![image-20210217162040652](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20210217162040652.png)
+![image-20210217162040652](F:\编程学习\笔记\Typora\typoraNeed\Typora\typora-user-images\image-20210217162040652.png)
 
 ```mysql
 -- 答案1：（全部使用连接查询）
@@ -1597,7 +1597,7 @@ RELEASE SAVEPOINT 保存点名称; -- 删除保存点
 
 事务处理步骤：
 
-![image-20210218223707244](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20210218223707244.png)
+![image-20210218223707244](F:\编程学习\笔记\Typora\typoraNeed\Typora\typora-user-images\image-20210218223707244.png)
 
 
 
@@ -1647,7 +1647,7 @@ ROLLBACK; -- 回滚
 SET autocommit=1; -- 开启自动提交
 ```
 
-![image-20210219155840319](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20210219155840319.png)
+![image-20210219155840319](F:\编程学习\笔记\Typora\typoraNeed\Typora\typora-user-images\image-20210219155840319.png)
 
 ## 7、索引
 
@@ -1894,7 +1894,7 @@ Archive 不支持事务，支持表级别锁定，不支持 B-tree、Hash、Full
 
 > 1、使用SQLyog 创建用户，并授予权限演示
 
-![image-20210219174855088](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20210219174855088.png)
+![image-20210219174855088](F:\编程学习\笔记\Typora\typoraNeed\Typora\typora-user-images\image-20210219174855088.png)
 
 
 
@@ -2021,7 +2021,7 @@ MySQL数据库备份方法
 - 搜集数据库进行备份 
 - 将数据转移到另一个SQL服务器,不一定是MySQL服务器
 
-![image-20210219191521662](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20210219191521662.png)
+![image-20210219191521662](F:\编程学习\笔记\Typora\typoraNeed\Typora\typora-user-images\image-20210219191521662.png)
 
 
 
@@ -2171,7 +2171,7 @@ MySQL数据库备份方法
 
 这里的驱动的概念和平时听到的那种驱动的概念是一样的，比如平时购买的声卡，网卡直接插到计算机 上面是不能用的，必须要安装相应的驱动程序之后才能够使用声卡和网卡，同样道理，我们安装好数据 库之后，我们的应用程序也是不能直接使用数据库的，必须要通过相应的数据库驱动程序，通过驱动程 序去和数据库打交道，如下所示：
 
-![image-20210220205138161](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20210220205138161.png)
+![image-20210220205138161](F:\编程学习\笔记\Typora\typoraNeed\Typora\typora-user-images\image-20210220205138161.png)
 
 
 
@@ -2180,7 +2180,7 @@ MySQL数据库备份方法
 SUN公司为了简化、统一对数据库的操作，定义了一套Java操作数据库的规范（接口），称之为JDBC。 这套接口由数据库厂商去实现，这样，开发人员只需要学习jdbc接口，并通过jdbc加载具体的驱动，就 可以操作数据库。
 如下图所示：
 
-![image-20210220205221961](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20210220205221961.png)
+![image-20210220205221961](F:\编程学习\笔记\Typora\typoraNeed\Typora\typora-user-images\image-20210220205221961.png)
 
 ​		JDBC全称为：Java Data Base Connectivity（java数据库连接），它主要由接口组成。 组成JDBC的２个包：java.sql、javax.sql 
 
@@ -2213,7 +2213,7 @@ VALUES(1,'zhansan','123456','zs@sina.com','1980-12-04'),
 
 > 新建一个Java工程，并导入数据驱动
 
-![image-20210220205529613](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20210220205529613.png)
+![image-20210220205529613](F:\编程学习\笔记\Typora\typoraNeed\Typora\typora-user-images\image-20210220205529613.png)
 
 > 编写程序从user表中读取数据，并打印在命令行窗口中。
 
@@ -2285,7 +2285,7 @@ DriverManager.registerDriver(new Driver()) DriverManager.getConnection(url, user
 
 URL用于标识数据库的位置，通过URL地址告诉JDBC程序连接哪个数据库，URL的写法为：
 
-![image-20210220210326799](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20210220210326799.png)
+![image-20210220210326799](F:\编程学习\笔记\Typora\typoraNeed\Typora\typora-user-images\image-20210220210326799.png)
 
 
 
@@ -3611,4 +3611,4 @@ public class TestC3P0 {
 
 Apache
 
-![image-20210222170304730](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20210222170304730.png)
+![image-20210222170304730](F:\编程学习\笔记\Typora\typoraNeed\Typora\typora-user-images\image-20210222170304730.png)
