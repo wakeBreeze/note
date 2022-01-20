@@ -1,6 +1,9 @@
 package zx.normal.函数式编程.optional;
 
-import javax.security.auth.Subject;
+import lombok.NonNull;
+
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 /**
@@ -9,7 +12,9 @@ import java.util.Optional;
  */
 public class demo01 {
     static class Subject{
+
         private int score;
+        private String subjectName;
 
         public int getScore() {
             return score;
@@ -17,6 +22,14 @@ public class demo01 {
 
         public void setScore(int score) {
             this.score = score;
+        }
+
+        public String getSubjectName() {
+            return subjectName;
+        }
+
+        public void setSubjectName(String subjectName) {
+            this.subjectName = subjectName;
         }
     }
     static class Student{
@@ -65,5 +78,25 @@ public class demo01 {
 
         System.out.println(getScoreNormal(student));
         System.out.println(getScoreOptional(student));
+
+        System.out.println("================");
+        Student student1 = new Student();
+        Student student2 = new Student();
+        List<Student> StudentList = new ArrayList<>();
+        StudentList.add(student);
+        StudentList.add(student1);
+        StudentList.add(student2);
+
+        Optional.ofNullable(StudentList).ifPresent(list -> {
+            for (Student stu : list) {
+
+                Integer integer = Optional.ofNullable(stu)
+                        .map(Student::getSubject)
+                        .map(Subject::getScore)
+                        .orElse(null);
+                System.out.println(integer);
+//                System.out.println(stu.subject.score);
+            }
+        });
     }
 }

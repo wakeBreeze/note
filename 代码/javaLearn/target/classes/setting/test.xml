@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<root>
+    <setting>
+        <key>test</key>
+        <value>6666</value>
+    </setting>
+    <setting>
+        <key>java</key>
+        <value>8888</value>
+    </setting>
+    <setting>
+        <key>c++</key>
+    </setting>
+</root>

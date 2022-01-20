@@ -1,0 +1,14 @@
+dontinline,*.*_all_jmhStub
+dontinline,*.*_avgt_jmhStub
+dontinline,*.*_sample_jmhStub
+dontinline,*.*_ss_jmhStub
+dontinline,*.*_thrpt_jmhStub
+inline,zx/mix/tryCatch/tryCatch性能测试/TryCatchPerformanceTest.innerForeach
+inline,zx/mix/tryCatch/tryCatch性能测试/TryCatchPerformanceTest.outterForeach
+inline,zx/normal/HashMap/HashMap遍历/性能测试/HashMapCycle.entrySet
+inline,zx/normal/HashMap/HashMap遍历/性能测试/HashMapCycle.forEachEntrySet
+inline,zx/normal/HashMap/HashMap遍历/性能测试/HashMapCycle.forEachKeySet
+inline,zx/normal/HashMap/HashMap遍历/性能测试/HashMapCycle.keySet
+inline,zx/normal/HashMap/HashMap遍历/性能测试/HashMapCycle.lambda
+inline,zx/normal/HashMap/HashMap遍历/性能测试/HashMapCycle.parallelStreamApi
+inline,zx/normal/HashMap/HashMap遍历/性能测试/HashMapCycle.streamApi

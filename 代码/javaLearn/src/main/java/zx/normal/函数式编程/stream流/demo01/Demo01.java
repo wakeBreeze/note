@@ -8,7 +8,7 @@ import java.util.stream.Collectors;
 /**
  * 给定一个字符串元素列表:{"1", "2", "bilibili", "of", "codesheep", "5", "at", "BILIBILI", "codesheep", "23", "CHEERS", "6"}
  * 实现：找出所有 长度>=5的字符串，并且忽略大小写、去除重复字符串，然后按字母排序，最后用“爱心❤”连接成一个字符串输出！
- * @Description: zx.normal.函数式编程.stream流.demo01
+ * @Description: zx.normal.函数式编程.stream流.ConcurrentHashMap键值不能为null
  * @version: 1.0
  */
 public class Demo01 {

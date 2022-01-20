@@ -1,7 +1,7 @@
 package zx.normal.Enum.demo01;
 
 /**
- * @Description: zx.normal.Enum.demo01
+ * @Description: zx.normal.Enum.ConcurrentHashMap键值不能为null
  * @version: 1.0
  */
 public enum VideoStatus {

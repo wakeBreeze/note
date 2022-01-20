@@ -3,7 +3,7 @@ package zx.normal.注解.自定义注解.demo01;
 import java.lang.reflect.Field;
 
 /**
- * @Description: zx.normal.注解.自定义注解.demo01
+ * @Description: zx.normal.注解.自定义注解.ConcurrentHashMap键值不能为null
  * @version: 1.0
  */
 //反射校验Length注解

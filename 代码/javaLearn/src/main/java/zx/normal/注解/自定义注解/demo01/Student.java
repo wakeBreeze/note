@@ -1,16 +1,18 @@
 package zx.normal.注解.自定义注解.demo01;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 /**
- * @Description: zx.normal.注解.自定义注解.demo01
+ * @Description: zx.normal.注解.自定义注解.ConcurrentHashMap键值不能为null
  * @version: 1.0
  */
 @Data
 @NoArgsConstructor
 //@AllArgsConstructor
+@Builder
 public class Student {
     private String name;// 学号
 
@@ -27,16 +29,21 @@ public class Student {
     }
 
     //构造时校验注解(也可通过反射实现)
-    public Student(String name, int age, String mobile) throws IllegalAccessException {
+    public Student(String name, int age, String mobile){
         this.name = name;
         this.age = age;
         this.mobile = mobile;
         // 反射校验注解
-        System.out.println(ReflectionVali.validate(this));
+        try {
+            System.out.println(ReflectionVali.validate(this));
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        }
     }
 
     public static void main(String[] args) throws IllegalAccessException {
         Student s = new Student("小明", 22, "1234567890");
+        Student student = Student.builder().name("小红").age(21).mobile("9876543210").build();
 //        String validate = ReflectionVali.validate(s);
 //        System.out.println(validate);
         s.setMobile("12345678901");
