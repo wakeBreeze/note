@@ -1,0 +1,15 @@
+# mysql 5 驱动不同 com.mysql.jdbc.Driver
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/mybatis_plus?useSSL=false&useUnicode=true&characterEncoding=utf-8
+    username: root
+    password: root
+
+# mysql 8 驱动不同 com.mysql.cj.jdbc.Driver、需要增加时区配置 serverTimezone=UTC
+
+
+# 配置日志
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl # 控制台打印

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="MySQL for 5.1 - @localhost">
+  <database-model serializer="dbm" dbms="MYSQL" family-id="MYSQL" format-version="4.19">
+    <root id="1">
+      <ServerVersion>5.0.91</ServerVersion>
+      <DefaultCasing>lower/lower</DefaultCasing>
+    </root>
+    <schema id="2" parent="1" name="information_schema"/>
+    <schema id="3" parent="1" name="mybatis_plus"/>
+    <schema id="4" parent="1" name="mysql"/>
+    <schema id="5" parent="1" name="olbworkexam"/>
+    <schema id="6" parent="1" name="test"/>
+  </database-model>
+</dataSource>
