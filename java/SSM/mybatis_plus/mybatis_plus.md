@@ -323,6 +323,446 @@ mybatis-plus:
 
 
 
+### 批量插入
+
+最近 Review 小伙伴代码的时候，发现了一个小小的问题，小伙伴竟然在 for 循环中进行了 insert （插入）[数据库](https://cloud.tencent.com/solution/database?from=10680)的操作，这就会导致每次循环时都会进行连接、插入、断开连接的操作，从而导致一定的性能问题，简化后代码如下：
+
+```javascript
+/**
+ * 插入操作
+ */
+@RequestMapping("/save")
+public Object save() {
+    boolean flag = false; // 返回结果
+    // 待添加（用户）数据
+    for (int i = 0; i < 1000; i++) {
+        User user = new User();
+        user.setName("test:"+i);
+        user.setPassword("123456");
+        // 插入数据
+        flag = userService.save(user);
+        if(!flag) break;
+    }
+    return flag;
+}
+```
+
+**这样做并不会改变程序最终的执行结果，但会对程序的执行效率带来很大的影响**，就好比你现在要从 A 地点送 10 件货到 B 地点，你可以选择 1 次送 1 件，送 10 次的方案；也可以选择 1 次送 10 件，送 1 次的方案，请问你会选择哪种？这就是多次循环插入和批量一次插入的问题。 
+
+>  PS：要插入的数据量越大，批量插入的时间（相比于循环多次插入来说）也越短、其优势也越大。 
+
+#### MP的saveBatch
+
+本文我们使用 MyBatis-Plus（下文简称 MP）自带的 saveBatch 方法，来实现数据的批量插入功能，因为 MP 不是本文讨论的重点，所以这里咱们就不介绍了，如果有不熟悉的朋友可以去他的官方自行恶补：https://baomidou.com/guide/，咱们本文重点介绍一下 MP 实现批量插入的具体步骤。 
+
+##### 1.引入 MP 框架
+
+首先，打开您的 pom.xml 文件，在文件中添加以下内容：
+
+```javascript
+<dependency>
+    <groupId>com.baomidou</groupId>
+    <artifactId>mybatis-plus-boot-starter</artifactId>
+    <version>mybatis-plus-latest-version</version>
+</dependency>
+```
+
+>  注意：mybatis-plus-latest-version 表示 MP 框架的最新版本号，可访问 https://mvnrepository.com/artifact/com.baomidou/mybatis-plus-boot-starter 查询最新版本号，但在使用的时候记得一定要将上面的 “mybatis-plus-latest-version”替换成换成具体的版本号，如 3.4.3 才能正常的引入框架。 
+
+##### 2.创建数据库和表
+
+此步骤可省略，主要用于本文功能的实现，创建数据库和数据表的脚本如下：
+
+```javascript
+-- ----------------------------
+-- 创建数据库
+-- ----------------------------
+SET NAMES utf8mb4;
+SET FOREIGN_KEY_CHECKS = 0;
+DROP DATABASE IF EXISTS `testdb`;
+CREATE DATABASE `testdb`;
+USE `testdb`;
+
+-- ----------------------------
+-- 创建 user 表
+-- ----------------------------
+DROP TABLE IF EXISTS `user`;
+CREATE TABLE `user`  (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NULL DEFAULT NULL,
+  `password` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NULL DEFAULT NULL,
+  `createtime` datetime NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 6 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_bin ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- 添加测试数据
+-- ----------------------------
+INSERT INTO `user` VALUES (1, '赵云', '123456', '2021-09-10 18:11:16');
+INSERT INTO `user` VALUES (2, '张飞', '123456', '2021-09-10 18:11:28');
+INSERT INTO `user` VALUES (3, '关羽', '123456', '2021-09-10 18:11:34');
+INSERT INTO `user` VALUES (4, '刘备', '123456', '2021-09-10 18:11:41');
+INSERT INTO `user` VALUES (5, '曹操', '123456', '2021-09-10 18:12:02');
+
+SET FOREIGN_KEY_CHECKS = 1;
+```
+
+##### 3.具体代码实现（重点）
+
+###### ① 实体类
+
+先来创建数据库所对应的 User 实体类：
+
+```javascript
+import lombok.Getter;
+import lombok.Setter;
+
+import java.util.Date;
+
+@Getter
+@Setter
+public class User {
+    private int id;
+    private String name;
+    private String password;
+    private Date createtime;
+}
+```
+
+###### ② Controller 层代码
+
+本文的核心是使用 MP 框架中，IService 类提供的 saveBatch 方法，来实现批量数据的插入功能，对应在 Controller 中的实现代码如下：
+
+```javascript
+import com.example.demo.model.User;
+import com.example.demo.service.impl.UserServiceImpl;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import java.util.ArrayList;
+import java.util.List;
+
+@RestController
+@RequestMapping("/u")
+public class UserController {
+
+    @Autowired
+    private UserServiceImpl userService;
+
+    /**
+     * MP 批量插入
+     */
+    @RequestMapping("/savebatch")
+    public boolean saveBatch() {
+        List<User> list = new ArrayList<>();
+        // 待添加（用户）数据
+        for (int i = 0; i < 1000; i++) {
+            User user = new User();
+            user.setName("test:"+i);
+            user.setPassword("123456");
+            list.add(user);
+        }
+        // 批量插入
+        return userService.saveBatch(list);
+    }
+}
+```
+
+###### ③ Service 层代码（重点）
+
+接下来，我们要创建一个 UserService 接口，继承 MP 框架中的 IService 接口，实现代码如下：
+
+```javascript
+import com.baomidou.mybatisplus.extension.service.IService;
+import com.example.demo.model.User;
+
+public interface UserService extends IService<User> {
+
+}
+```
+
+然后再创建一个 UserService 的实现类：
+
+```javascript
+import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.example.demo.mapper.UserMapper;
+import com.example.demo.model.User;
+import com.example.demo.service.UserService;
+import org.springframework.stereotype.Service;
+
+@Service
+public class UserServiceImpl extends ServiceImpl<UserMapper,User>
+        implements UserService {
+
+}
+```
+
+>  PS：注意 UserServiceImpl 必须要继承 MP 框架中的 ServiceImpl，不然要重写很多方法。 
+
+###### ④ Mapper 层代码
+
+Mapper 层的实现相对来说就比较简单了，只需要创建一个 Mapper 类继承 MP 框架中的 BaseMapper 类即可，实现代码如下：
+
+```javascript
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.example.demo.model.User;
+import org.apache.ibatis.annotations.Mapper;
+
+@Mapper
+public interface UserMapper extends BaseMapper<User>{
+
+}
+```
+
+>  PS：BaseMapper 提供了对某个对象（类）最基础的 CRUD 操作。 
+
+##### 总结
+
+本文我们介绍了 MP（MyBatis Plus）中实现批量插入的具体实现步骤，它的核心是通过调用 MP 中 IService 提供的 saveBatch 方法来完成的
+
+
+
+#### [多线程批量插入](https://blog.csdn.net/qq_33709582/article/details/121745749)
+
+很多同学都有这样的困扰：
+
+工作中项目的数据量不大，遇不到sql优化的场景：单表就几万，我优化个der啊；
+业务对性能要求不高，远远没达到性能瓶颈：咱这项目又不是不能跑，优化个der啊；
+确实，如果你的项目体量不大，不管是数据层还是应用层，都很难接触到性能优化
+
+但是
+
+我们可以自己造数据啊
+
+今天我带来了一个demo，不仅让你能把多线程运用到实际项目中，还能用它往数据库造测试数据，让你体验下大数据量的表优化
+
+定个小目标，今天造它一亿条数据
+
+首先搞清楚，不要为了用技术而用技术，技术一定是为了实现需求：
+
+插入一亿条数据，这是需求；
+为了提高效率，运用多线程异步插入，这是方案；
+1、为了尽可能模拟真实场景，我们new个对象
+
+靠phone和createTime俩字段，能大大降低数据重复度，抛开别的字段不说，这俩字段基本能保证没有重复数据，所以我们最终的数据很真实，没有一条是重复的，而且，最后还能通过createTime来统计每秒插入条数，nice~
+
+```java
+public class Person {
+    private Long id;
+    private String name;//姓名
+    private Long phone;//电话
+    private BigDecimal salary;//薪水
+    private String company;//公司
+    private Integer ifSingle;//是否单身
+    private Integer sex;//性别
+    private String address;//住址
+    private LocalDateTime createTime;
+    private String createUser;
+}
+```
+
+2、想要插的更快，我们得使用MyISAM引擎，并且要主键自增（不知道为什么的兄弟私聊我或者评论区留言，咱们今天主题不是讲数据库本身）
+
+ddl：
+
+```sql
+CREATE TABLE `person` (
+  `id` bigint NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `phone` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `salary` decimal(10,2) NOT NULL,
+  `company` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `if_single` tinyint NOT NULL,
+  `sex` tinyint NOT NULL,
+  `address` varchar(225) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `create_time` datetime NOT NULL,
+  `create_user` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=30170001 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+```
+
+3、为了模拟真实数据，我们得用到一些枚举值和随机算法
+
+部分属性枚举值：
+
+```java
+private String[] names = {"黄某人", "负债程序猿", "谭sir", "郭德纲", "蔡徐鸡", "蔡徐老母鸡", "李狗蛋", "铁蛋", "赵铁柱"};
+private String[] addrs = {"二仙桥", "成华大道", "春熙路", "锦里", "宽窄巷子", "双子塔", "天府大道", "软件园", "熊猫大道", "交子大道"};
+private String[] companys = {"京东", "腾讯", "百度", "小米", "米哈游", "网易", "字节跳动", "美团", "蚂蚁", "完美世界"};
+
+```
+
+随机获取person
+
+```java
+private Person getPerson() {
+    Person person = Person.builder()
+            .name(names[random.nextInt(names.length)])
+            .phone(18800000000L + random.nextInt(88888888))
+            .salary(new BigDecimal(random.nextInt(99999)))
+            .company(companys[random.nextInt(companys.length)])
+            .ifSingle(random.nextInt(2))
+            .sex(random.nextInt(2))
+            .address("四川省成都市" + addrs[random.nextInt(addrs.length)])
+            .createUser(names[random.nextInt(names.length)]).build();
+    return person;
+}
+```
+
+5、orm层用的mybatis
+
+```xml
+<insert id="insertList" parameterType="com.example.demos.entity.Person">
+    insert into person (name, phone, salary, company, if_single, sex, address, create_time, create_user)
+    values
+    <foreach collection="list" item="item" separator=",">
+        (#{item.name}, #{item.phone}, #{item.salary}, #{item.company}, #{item.ifSingle}, #{item.sex},
+        #{item.address}, now(), #{item.createUser})
+    </foreach>
+</insert>
+```
+
+准备工作完成，开始写核心逻辑
+
+思路：
+1、想要拉高插入效率，肯定不能够一条一条插了，必须得foreach批量插入，经测试，单次批量3w条以下时性价比最高，并且不用修改mysql配置
+2、文章开头说了，得开多个线程异步插入，我们先把应用层效率拉满，mysql顶不顶得住
+3、我们不可能单次提交一亿次insert，这谁顶得住，而且大量插入操作会很耗时，短时间内完不成，我们不可能一直守着，我的方案是用定时任务
+。。。
+
+算了屁话不多说，直接上demo
+
+```java
+@Component
+public class PersonService {
+    private static final int THREAD_COUNT = 10;
+    @Autowired
+    private PersonMapper personMapper;
+    @Autowired
+    private ThreadPoolExecutor executor;
+    private AtomicInteger integer = new AtomicInteger();
+    private Random random = new Random();
+    private String[] names = {"黄某人", "负债程序猿", "谭sir", "郭德纲", "蔡徐鸡", "蔡徐母鸡", "李狗蛋", "铁蛋", "赵铁柱"};
+    private String[] addrs = {"二仙桥", "成华大道", "春熙路", "锦里", "宽窄巷子", "双子塔", "天府大道", "软件园", "熊猫大道", "交子大道"};
+    private String[] companys = {"京东", "腾讯", "百度", "小米", "米哈游", "网易", "字节跳动", "美团", "蚂蚁", "完美世界"};
+
+    @Scheduled(cron = "0/15 * * * * ?")
+    public void insertList() {
+        System.out.println("本轮任务开始，总任务数：" + THREAD_COUNT);
+        long start = System.currentTimeMillis();
+        AtomicLong end = new AtomicLong();
+        for (int i = 0; i < THREAD_COUNT; i++) {
+            Thread thread = new Thread(() -> {
+                try {
+                    for (int j = 0; j < 20; j++) {
+                        personMapper.insertList(getPersonList(5000));
+                    }
+                    end.set(System.currentTimeMillis());
+                    System.out.println("本轮任务耗时：" + (end.get() - start) + "____已执行" + integer.addAndGet(1) + "个任务" + "____当前队列任务数" + executor.getQueue().size());
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            });
+            try {
+                executor.execute(thread);
+            } catch (Exception e) {
+                System.out.println(e.getMessage());
+            }
+        }
+    }
+
+    private ArrayList<Person> getPersonList(int count) {
+        ArrayList<Person> persons = new ArrayList<>(count);
+        for (int i = 0; i < count; i++) {
+            persons.add(getPerson());
+        }
+        return persons;
+    }
+
+    private Person getPerson() {
+        Person person = Person.builder()
+                .name(names[random.nextInt(names.length)])
+                .phone(18800000000L + random.nextInt(88888888))
+                .salary(new BigDecimal(random.nextInt(99999)))
+                .company(companys[random.nextInt(companys.length)])
+                .ifSingle(random.nextInt(2))
+                .sex(random.nextInt(2))
+                .address("四川省成都市" + addrs[random.nextInt(addrs.length)])
+                .createUser(names[random.nextInt(names.length)]).build();
+        return person;
+    }
+}
+
+```
+
+我的线程池配置，我电脑配置比较拉跨，只有12个线程…
+
+```java
+@Configuration
+public class ThreadPoolExecutorConfig {
+    @Bean
+    public ThreadPoolExecutor threadPoolExecutor() {
+        ThreadPoolExecutor executor = new ThreadPoolExecutor(10, 12, 5, TimeUnit.SECONDS, new ArrayBlockingQueue<>(100));
+        executor.allowCoreThreadTimeOut(true);
+        return executor;
+    }
+}
+```
+
+测试
+
+![在这里插入图片描述](https://img-blog.csdnimg.cn/196a89f1ac2443df8ac29aa14ed964f8.png)
+
+现在表是空的
+
+项目跑起来
+
+![在这里插入图片描述](https://img-blog.csdnimg.cn/39b9fd39cb8e4dcda299caf9ccba1f27.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA6LSf5YC656iL5bqP54y_,size_20,color_FFFFFF,t_70,g_se,x_16)
+
+已经在开始插了，挂在后台让它自己跑吧。。。
+25 minutes later ~
+看下数据库
+
+![在这里插入图片描述](https://img-blog.csdnimg.cn/f3238036efe740daba4614bc97a7e389.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA6LSf5YC656iL5bqP54y_,size_20,color_FFFFFF,t_70,g_se,x_16)
+
+已经插入了1.04亿条数据，需求完成
+
+第一条数据是15:54:15开始的，耗时大概25min
+
+![在这里插入图片描述](https://img-blog.csdnimg.cn/c4d7c37596f74050ab832ff9dc877f87.png)
+
+再来从数据库中看下一秒插入多少条，直接count某秒即可
+
+![在这里插入图片描述](https://img-blog.csdnimg.cn/697b5106b8ab49248566abb160814e11.png)
+
+
+一秒8.5w，嘎嘎快
+
+来说下demo中核心的几个点：
+
+- 关于线程：我的cpu只有十二个线程，所以核心线程设置的10，留两个线程打杂；
+- 关于线程中的逻辑：每个线程有20次循环，每次循环插入5000条；
+- 关于获取随机对象：我没有统计创建对象的耗时，因为即使是创建100w个对象，但是这都是内存操作，跟insert这种io操作比起来，耗时几乎可以忽略，我就不测试了，你可以自己试试；
+- 关于效率：你们看到的版本（10 * 20 * 5000）是我只优化过几次的半成品，这种搭配最终的效率是100w条耗时12.5s，效率肯定不是最高的，但基本够用了；
+  
+
+可以看看之前的测试效率记录
+
+```tex
+10 * 100 * 1000：22-23s
+10 * 50 * 2000：19-20s
+10 * 10 * 10000 ：18-20s
+```
+
+
+
+可以参考记录进行深度调优
+
+哦对了，想效率更快的话，表不要建索引，insert时维护索引也是一笔不小的开销
+
+---
+
 ### 主键生成策略
 
 > 默认 IdType.ID_WORKER 全局唯一ID
@@ -373,7 +813,51 @@ public enum IdType {
 
 
 
+### 更新操作
 
+测试类中加入：
+
+```java
+// 测试更新
+    @Test
+    void updateTest(){
+        User user = new User();
+        user.setId(1L);
+        user.setName("王二");
+        user.setAge(999);
+        userMapper.updateById(user);
+    }
+```
+
+日志
+
+![image-20220124123654044](F:\编程学习\笔记\Typora\typoraNeed\Typora\typora-user-images\image-20220124123654044.png)
+
+sql会自动配置
+
+
+
+### 自动填充
+
+创建时间，修改时间！这些操作一般都是自动化完成的，我们不希望手动更新！
+
+阿里巴巴开发手册：所有的数据库表：gmt_create、gmt_modified 几乎所有的表都要配置上！并且需要自动化！
+
+> 方式一：数据库级别（工作中不允许修改数据库）
+
+1、在表中新增字段 create_time、update_time
+
+![image-20220124135235370](F:\编程学习\笔记\Typora\typoraNeed\Typora\typora-user-images\image-20220124135235370.png)
+
+注意：datetime类型的自动更新MySQL5.6以后才支持
+
+MySQL5.6以前的版本可以用timestamp（但是只支持一个字段默认值是CURRENT_TIMESTAMP）
+
+
+
+
+
+> 方式二：代码级别
 
 
 
@@ -388,3 +872,27 @@ public enum IdType {
 从以上步骤中，我们可以看到集成`MyBatis-Plus`非常的简单，只需要引入 starter 工程，并配置 mapper 扫描路径即可。
 
 但 MyBatis-Plus 的强大远不止这些功能，想要详细了解 MyBatis-Plus 的强大功能？那就继续往下看吧！
+
+
+
+# 其他
+
+## #设置resource进行资源文件忽略
+
+```xml
+<resources>
+    <resource>
+        <directory>src/main/java</directory>
+        <includes>
+            <include>**/*.xml</include>
+        </includes>
+    </resource>
+    <resource>
+        <directory>src/main/resources</directory>
+        <includes>
+            <include>**/*</include>
+        </includes>
+    </resource>
+</resources>
+```
+

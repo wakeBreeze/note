@@ -1,8 +1,10 @@
 package com.zx.mybatis_plus_learn;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.zx.mapper.read.Ka92AndKa94ReadMapper;
 import com.zx.mapper.read.UserMapper;
 import com.zx.pojo.User;
+import com.zx.service.read.Ka92AndKa94ReadService;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
@@ -14,6 +16,16 @@ import java.util.function.Consumer;
 class MybatisPlusLearnApplicationTests {
     @Resource
     private UserMapper userMapper;
+    @Resource
+    private Ka92AndKa94ReadService ka92AndKa94ReadService;
+
+    @Resource
+    private Ka92AndKa94ReadMapper ka92AndKa94ReadMapper;
+    @Test
+    void processingData(){
+//        System.out.println(ka92AndKa94ReadMapper.getAaz328());
+        ka92AndKa94ReadService.getKa92AndKa94s();
+    }
 
     @Test
     void contextLoads() {
