@@ -2,11 +2,11 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.zx.mapper.read.Ka92AndKa94ReadMapper">
     <!--获取aaz356序列-->
-    <select id="getAaz356" resultType="long">
+    <select id="getAaz356" resultType="java.lang.String">
         select se_aaz356.nextval from dual
     </select>
     <!--获取aaz328序列-->
-    <select id="getAaz328" resultType="long">
+    <select id="getAaz328" resultType="java.lang.String">
         select se_aaz328.nextval from dual
     </select>
     <!--获取ka92和ka94所需数据-->

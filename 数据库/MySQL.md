@@ -3612,3 +3612,51 @@ public class TestC3P0 {
 Apache
 
 ![image-20210222170304730](F:\编程学习\笔记\Typora\typoraNeed\Typora\typora-user-images\image-20210222170304730.png)
+
+
+
+# 扩展
+
+## [mysql实现跨服务器查询数据](https://blog.csdn.net/banjw_129/article/details/83445849)
+
+在日常的开发中经常进行跨数据库进行查询数据。
+同服务器下跨数据库进行查询在表前加上数据库名就可以查询到数据。
+mysql跨服务器进行查询提供了FEDERATED引擎进行映射表，然后进行查询。
+mysql数据库federated引擎是关闭的，首先需要先启用该引擎。mysql执行show engines命令查看引擎状态。
+
+```mysql
+show engines;
+```
+
+FEDERATED引擎是未启用的。
+
+![该引擎是未启用的](https://img-blog.csdnimg.cn/20181027135132410.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2Jhbmp3XzEyOQ==,size_27,color_FFFFFF,t_70)
+
+
+
+启用FEDERATED引擎
+Windows下找到my.ini修改mysql配置。该文件是隐藏在ProgramData文件夹，在该地址：C:\ProgramData\MySQL\MySQL Server 5.7，可以通过%ProgramData%查找该隐藏文件件。
+打开my.ini文件，在[mysqld] 下加上federated
+
+![在这里插入图片描述](https://img-blog.csdnimg.cn/2018102714010448.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2Jhbmp3XzEyOQ==,size_27,color_FFFFFF,t_70)
+
+重启mysql，再查看引擎
+
+![在这里插入图片描述](https://img-blog.csdnimg.cn/20181027140242789.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2Jhbmp3XzEyOQ==,size_27,color_FFFFFF,t_70)
+
+在mysql中创建远程服务器数据库中的需要映射的表，映射表名称可以随意命名，但是数据结构必要一样。
+
+```mysql
+CREATE TABLE `hn_user` (
+  `id` varchar(32) NOT NULL,
+  `name` varchar(20) DEFAULT NULL,
+  `phone` varchar(11) DEFAULT NULL,
+  `idcard` varchar(18) DEFAULT NULL,
+  `update_time` bigint(13) DEFAULT NULL,
+  `add_time` bigint(13) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=FEDERATED CONNECTION='mysql://root:123456@192.168.1.8:3306/db/user'; 
+```
+
+注意：ENGINE=FEDERATED，使用federated引擎，修改用户名，密码，地址，端口号，数据库，表
+这样就可以将远程的user表数据实时映射到hn_user表中，实现mysql跨服务器查询数据。

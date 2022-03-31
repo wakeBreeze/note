@@ -13,8 +13,10 @@ import com.zx.service.write.Ka94WriteService;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.atomic.AtomicLong;
 
 /**
  * @Description: com.zx.service.read.impl
@@ -22,6 +24,9 @@ import java.util.List;
  */
 @Service
 public class Ka92AndKa94ReadServiceImpl implements Ka92AndKa94ReadService {
+    AtomicLong atomic_aaz328 = new AtomicLong(3213000001309321l);
+    AtomicLong atomic_aaz356 = new AtomicLong(3213000205623841l);
+
     @Resource
     private Ka92AndKa94ReadMapper ka92AndKa94ReadMapper;
     @Resource
@@ -29,16 +34,25 @@ public class Ka92AndKa94ReadServiceImpl implements Ka92AndKa94ReadService {
     @Resource
     private Ka94WriteService ka94WriteService;
 
+    @Resource
+    private Ka92WriteMapper ka92WriteMapper;
+    @Resource
+    private Ka94WriteMapper ka94WriteMapper;
+
     @Override
     public void getKa92AndKa94s() {
         List<Ka92AndKa94> ka92AndKa94s = ka92AndKa94ReadMapper.getKa92AndKa94s();
 
         List<Ka92> ka92s = new ArrayList<>();
         List<Ka94> ka94s = new ArrayList<>();
+
+        /*ka92AndKa94s.parallelStream().forEach(ka92AndKa94->{
+
+        });*/
         for (Ka92AndKa94 ka92AndKa94 : ka92AndKa94s) {
-            long aaz328 = ka92AndKa94ReadMapper.getAaz328();
-            long aaz356 = ka92AndKa94ReadMapper.getAaz356();
-            System.out.println(aaz328+"--"+aaz356);
+            String aaz328 = String.valueOf(atomic_aaz328.addAndGet(1l));
+            String aaz356 = String.valueOf(atomic_aaz356.addAndGet(1l));
+//            System.out.println(aaz328+"--"+aaz356);
             /**ka92*/
             Ka92 ka92 = new Ka92();
             ka92.setAaz328(aaz328);
@@ -67,6 +81,9 @@ public class Ka92AndKa94ReadServiceImpl implements Ka92AndKa94ReadService {
 
             ka92s.add(ka92);
             ka94s.add(ka94);
+//            ka92WriteMapper.insert(ka92);
+//            ka94WriteMapper.insert(ka94);
+
         }
         ka92WriteService.saveBatch(ka92s,3000);
         ka94WriteService.saveBatch(ka94s,3000);

@@ -14,6 +14,6 @@ import java.util.List;
 public interface Ka92AndKa94ReadMapper{
     List<Ka92AndKa94> getKa92AndKa94s();
 
-    long getAaz356();//获取序列
-    long getAaz328();//获取序列
+    String getAaz356();//获取序列
+    String getAaz328();//获取序列
 }

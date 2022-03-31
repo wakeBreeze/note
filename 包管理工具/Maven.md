@@ -52,10 +52,11 @@ Maven会规定好你该如何去编写我们的Java代码，必须要按照这�
 作用：加速我们的下载 国内建议使用阿里云的镜像
 
 ```xml
-<mirror> 
+<mirror>
     <id>nexus-aliyun</id> 
     <mirrorOf>*,!jeecg,!jeecg-snapshots</mirrorOf> 
-    <name>Nexus aliyun</name>               <url>http://maven.aliyun.com/nexus/content/groups/public</url>
+    <name>Nexus aliyun</name>
+    <url>http://maven.aliyun.com/nexus/content/groups/public</url>
 </mirror>
 ```
 
@@ -333,3 +334,52 @@ maven由于他的约定大于配置，我们之后可以能遇到我们写的配
 ![image-20210224134746555](F:\编程学习\笔记\Typora\typoraNeed\Typora\typora-user-images\image-20210224134746555.png)
 
 ![image-20210224134804110](F:\编程学习\笔记\Typora\typoraNeed\Typora\typora-user-images\image-20210224134804110.png)
+
+
+
+## Maven仓库处理
+
+手动更新仓库文件后
+
+在File-Settings中
+
+![image-20220318121019629](F:\编程学习\笔记\Typora\typoraNeed\Typora\typora-user-images\image-20220318121019629.png)
+
+经过此步骤后，就能检测到仓库中的更新了
+
+
+
+## Maven手动安装jar包
+
+[下载依赖jar包](https://search.maven.org/#browse)
+
+依赖
+
+```xml
+<dependency>
+	<groupId>org.apache.maven.wagon</groupId>
+	<artifactId>wagon-ssh</artifactId>
+	<version>3.5.1</version>
+</dependency>
+```
+
+安装命令
+
+```bash
+mvn install:install-file -Dfile=jar包的位置 -DgroupId=上面的groupId -DartifactId=上面的artifactId -Dversion=上面的version -Dpackaging=jar
+```
+
+参考
+
+```bash
+#-Dfile 为jar包所在路径（不在jar包位置执行的话，需要指定全路径，如：G:\资源\其他\手动下载的maven依赖\wagon-ssh\3.5.1\wagon-ssh-3.5.1.jar)
+mvn install:install-file -Dfile=wagon-ssh-3.5.1.jar -DgroupId=org.apache.maven.wagon -DartifactId=wagon-ssh -Dversion=3.5.1 -Dpackaging=jar
+
+mvn install:install-file -Dfile=docker-maven-plugin-0.4.14.jar -DgroupId=com.spotify -DartifactId=docker-maven-plugin -Dversion=0.4.14 -Dpackaging=jar
+```
+
+![image-20220318154658120](F:\编程学习\笔记\Typora\typoraNeed\Typora\typora-user-images\image-20220318154658120.png)
+
+注意：安装的位置在配置文件settings.xml中配置的仓库位置！！！
+
+如：`<localRepository>D:\softwareInstallWork\maven\repository</localRepository>`

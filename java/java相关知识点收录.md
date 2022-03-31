@@ -5923,7 +5923,11 @@ This class is immutable and thread-safe.  （不可变、线程安全！）
 
 ![图片](https://mmbiz.qpic.cn/mmbiz_png/xq9PqibkVAzqnuiaMzfNIG9n52WUoMoiagpZwT0bKt65rQjjcwdXgATFNJosXSsrHp2ucP30lmC9SERy2Gg97Y1gA/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
 
+### LocalDate
 
+- 用法与 LocalDateTime 基本一致
+- 包含具体时间的用 LocalDateTime
+- 只含有年月日的用 LocalDate （用LocalDateTime 会抛`java.time.format.DateTimeParseException`异常-Unable to obtain LocalDateTime from TemporalAccessor: {}）
 
 ---
 

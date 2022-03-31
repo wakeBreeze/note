@@ -336,6 +336,6 @@ $ git stash pop
 $ git archive
 ```
 
-以上常用命令来自阮一峰老师的博客文章《常用 Git 命令清单》，感谢阮老师！
+
 
 [![Gitee — 基于 Git 的代码托管和研发协作平台](https://gitee.com/static/images/logo-black.svg?t=158106666)](https://gitee.com/)
