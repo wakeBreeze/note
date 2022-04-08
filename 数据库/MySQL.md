@@ -3660,3 +3660,138 @@ CREATE TABLE `hn_user` (
 
 注意：ENGINE=FEDERATED，使用federated引擎，修改用户名，密码，地址，端口号，数据库，表
 这样就可以将远程的user表数据实时映射到hn_user表中，实现mysql跨服务器查询数据。
+
+
+
+
+
+# 异常解决
+
+## ERROR 1045
+
+[参考](https://blog.csdn.net/qq_28938933/article/details/72872064)
+
+```tex
+ERROR 1045 (28000): Access denied for user 'root'@'localhost' (using password: YES)  
+```
+
+### 错误分析：
+
+- 密码错误
+- 该用户没有远程连接权限
+
+解决：
+
+### 1、修改密码
+
+1.停止服务：停止MySQL服务；
+
+```bash
+ # windows
+ net stop mysql 
+
+ # linux
+ service mysqld stop
+```
+
+
+
+2.跳过验证：修改MySQL安装目录下的my.ini配置文件，使登录时跳过权限检查；
+
+```bash
+ #到mysql根目录找到mysql配置文件 
+ vim my.ini
+ #在my.ini，[mysqld]下添加一行，使其登录时跳过权限检查
+ skip_grant_tables
+```
+
+
+3.修改密码：启动MySQL服务，登录MySQL，此时提示输入密码，不要输入密码直接回车即可进入MySQL。
+
+```mysql
+#登录mysql
+mysql -u root -p
+```
+
+
+然后通过SQL语句修改root用户的密码；
+
+```mysql
+#将数据库切换至mysql库
+mysql> USE mysql;
+#修改密码
+mysql> UPDATE user SET password=PASSWORD('newpasswd')WHERE user='root'; 
+#刷新MySQL权限相关的表
+mysql> flush privileges;
+mysql> exit;
+```
+
+
+4.重启服务：将my.ini文件中加入的跳过权限语句删除或加#号注释。重启服务，使用修改后的密码登录即可。
+
+### 2、添加远程连接权限
+
+#### 登陆mysql数据库
+
+```bash
+mysql -u root -p
+```
+
+```sql
+# 查看user表
+mysql> use mysql;
+Database changed
+
+mysql> select host,user,password from user;
++--------------+------+-------------------------------------------+
+| host | user | password |
++--------------+------+-------------------------------------------+
+| localhost | root | *A731AEBFB621E354CD41BAF207D884A609E81F5E |
+| 192.168.1.1 | root | *A731AEBFB621E354CD41BAF207D884A609E81F5E |
++--------------+------+-------------------------------------------+
+2 rows in set (0.00 sec)
+
+# 可以看到在user表中已创建的root用户。host字段表示登录的主机，其值可以用IP，也可用主机名，
+# (1)有时想用本地IP登录，那么可以将以上的Host值改为自己的Ip即可。
+```
+
+#### 实现远程连接
+
+##### 1、授权法
+
+```sql
+# 将host字段的值改为%就表示在任何客户端机器上能以root用户登录到mysql服务器，建议在开发时设为%。
+update user set host = '%' where user = 'root';
+
+# 将权限改为ALL PRIVILEGES
+mysql> use mysql;
+Database changed
+
+mysql> grant all privileges on *.* to root@'%' identified by "自己的密码";
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> flush privileges;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> select host,user,password from user;
++--------------+------+-------------------------------------------+
+| host | user | password |
++--------------+------+-------------------------------------------+
+| localhost | root | *A731AEBFB621E354CD41BAF207D884A609E81F5E |
+| 192.168.1.1 | root | *A731AEBFB621E354CD41BAF207D884A609E81F5E |
+| % | root | *A731AEBFB621E354CD41BAF207D884A609E81F5E |
++--------------+------+-------------------------------------------+
+3 rows in set (0.00 sec)
+
+# 这样机器就可以以用户名root密码root远程访问该机器上的MySql.
+```
+
+##### 2、改表法
+
+```sql
+# 将host字段的值改为%就表示在任何客户端机器上能以root用户登录到mysql服务器，建议在开发时设为%。
+update user set host = ‘%’ where user = ‘root’;
+
+#这样在远端就可以通过root用户访问Mysql.
+```
+
