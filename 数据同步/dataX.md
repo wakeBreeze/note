@@ -64,7 +64,7 @@ password: drgsplatform_sq
 #### 配置
 
 - 替换掉datax/lib/datax-core-0.0.1-SNAPSHOT.jar
-- data-sync-back-0.0.1-SNAPSHOT-20211009.jar放在datax同级目录。如图：![image-20211021173142319](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20211021173142319.png)
+- data-sync-back-0.0.1-SNAPSHOT-20211009.jar放在datax同级目录。如图：![image-20211021173142319](F:\编程学习\笔记\Typora\typoraNeed\Typora\typora-user-images\image-20211021173142319.png)
 
 - 
 
@@ -74,29 +74,27 @@ data-sync-back-0.0.1-SNAPSHOT-20211009.jar包的==application.yml==中的数据�
 
 xxl-job-admin-2.0.1.jar包的==application.properties==中的数据源配置为16个xxl_job_qrtz...表所在的库。
 
-
-
 **application.yml位置：**data-sync-back-0.0.1-SNAPSHOT-20211009.jar/BOOT-INF/classes/application.yml
 
-![image-20211021164803066](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20211021164803066.png)
+![image-20211021164803066](F:\编程学习\笔记\Typora\typoraNeed\Typora\typora-user-images\image-20211021164803066.png)
 
 
 
 **application.properties位置：**`xxl_job_admin-2.0.1.jar/BOOT-INF/classes/application.properties`
 
-![image-20211021165538826](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20211021165538826.png)
+![image-20211021165538826](F:\编程学习\笔记\Typora\typoraNeed\Typora\typora-user-images\image-20211021165538826.png)
 
 
 
 新增执行器
 
-![image-20211021171238335](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20211021171238335.png)
+![image-20211021171238335](F:\编程学习\笔记\Typora\typoraNeed\Typora\typora-user-images\image-20211021171238335.png)
 
 
 
 平台新增任务
 
-![image-20211021172044991](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20211021172044991.png)
+![image-20211021172044991](F:\编程学习\笔记\Typora\typoraNeed\Typora\typora-user-images\image-20211021172044991.png)
 
 
 
@@ -112,7 +110,7 @@ xxl-job-admin-2.0.1.jar包的==application.properties==中的数据源配置为1
 
 xxl_job的日志配置（日志处于关闭状态）
 
-![image-20211021172441037](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20211021172441037.png)
+![image-20211021172441037](F:\编程学习\笔记\Typora\typoraNeed\Typora\typora-user-images\image-20211021172441037.png)
 
 
 
@@ -120,13 +118,13 @@ xxl_job的日志配置（日志处于关闭状态）
 
 同步数据的表，按这种写进去
 
-![image-20211021175136884](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20211021175136884.png)
+![image-20211021175136884](F:\编程学习\笔记\Typora\typoraNeed\Typora\typora-user-images\image-20211021175136884.png)
 
 
 
 每次同步的数据量的日志
 
-![image-20211021175200835](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20211021175200835.png)
+![image-20211021175200835](F:\编程学习\笔记\Typora\typoraNeed\Typora\typora-user-images\image-20211021175200835.png)
 
 
 
