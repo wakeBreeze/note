@@ -603,3 +603,31 @@ xxl-job-admin-2.0.1.jar中application.properties
 ![image-20211215182500566](F:\编程学习\笔记\Typora\typoraNeed\Typora\typora-user-images\image-20211215182500566.png)
 
 这两处端口是否一致
+
+
+
+
+
+##### [连接超时](https://blog.csdn.net/weixin_33964094/article/details/90583200)
+
+报错信息
+
+```tex
+com.alibaba.datax.common.exception.DataXException: Code:[DBUtilErrorCode-07], Description:[读取数据库数据失败. 请检查您的配置的 column/table/where/querySql或者向 DBA 寻求帮助.].  - 执行的SQL为: select setl_id,clr_optins,medins_setl_id,mdtrt_id,init_setl_id,psn_no,psn_insu_rlts_id,psn_name,psn_cert_type,certno,gend,naty,brdy,age,insutype,psn_type,cvlserv_flag,cvlserv_lv,sp_psn_type,sp_psn_type_lv,clct_grde,flxempe_flag,nwb_flag,insu_admdvs,emp_no,emp_name,emp_type,econ_type,afil_indu,afil_rlts,emp_mgt_type,pay_loc,fixmedins_code,fixmedins_name,hosp_lv,fix_blng_admdvs,lmtpric_hosp_lv,dedc_hosp_lv,begndate,enddate,setl_time,mdtrt_cert_type,mdtrt_cert_no,med_type,setl_type,clr_type,clr_way,psn_setlway,medfee_sumamt,fulamt_ownpay_amt,overlmt_selfpay,preselfpay_amt,inscp_amt,dedc_std,crt_dedc,act_pay_dedc,hifp_pay,pool_prop_selfpay,hi_agre_sumfee,cvlserv_pay,hifes_pay,hifmi_pay,hifob_pay,hifdm_pay,maf_pay,othfund_pay,fund_pay_sumamt,psn_pay,acct_pay,cash_payamt,ownpay_hosp_part,balc,acct_mulaid_pay,refd_setl_flag,cal_ipt_cnt,setl_cashpay_way,year,dise_no,dise_name,invono,manl_reim_rea,vali_flag,memo,rid,updt_time,crter_id,crter_name,crte_time,crte_optins_no,opter_id,opter_name,opt_time,optins_no,poolarea_no,mid_setl_flag,acct_used_flag,quts_type,bydise_setl_payamt,exct_item_fund_payamt from setl_d where (setl_time >= '2019-01-01 00:00:00' and setl_time < '2019-07-01 00:00:00' and vali_flag = '1') 具体错误信息为：com.mysql.jdbc.exceptions.jdbc4.CommunicationsException: Communications link failure
+
+The last packet successfully received from the server was 7 milliseconds ago.  The last packet sent successfully to the server was 379,502 milliseconds ago.
+        at com.alibaba.datax.common.exception.DataXException.asDataXException(DataXException.java:26)
+        at com.alibaba.datax.plugin.rdbms.util.RdbmsException.asQueryException(RdbmsException.java:81)
+        at com.alibaba.datax.plugin.rdbms.reader.CommonRdbmsReader$Task.startRead(CommonRdbmsReader.java:220)
+        at com.alibaba.datax.plugin.reader.mysqlreader.MysqlReader$Task.startRead(MysqlReader.java:81)
+        at com.alibaba.datax.core.taskgroup.runner.ReaderRunner.run(ReaderRunner.java:57)
+        at java.lang.Thread.run(Thread.java:745)
+```
+
+解决：
+
+```tex
+数据库连接添加参数(单位/秒)
+netWriteTimeout=3600
+```
+
