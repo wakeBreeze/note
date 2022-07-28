@@ -353,6 +353,8 @@ maven由于他的约定大于配置，我们之后可以能遇到我们写的配
 
 [下载依赖jar包](https://search.maven.org/#browse)
 
+[阿里maven仓库](https://developer.aliyun.com/mvn/search)
+
 依赖
 
 ```xml
@@ -376,6 +378,8 @@ mvn install:install-file -Dfile=jar包的位置 -DgroupId=上面的groupId -Dart
 mvn install:install-file -Dfile=wagon-ssh-3.5.1.jar -DgroupId=org.apache.maven.wagon -DartifactId=wagon-ssh -Dversion=3.5.1 -Dpackaging=jar
 
 mvn install:install-file -Dfile=docker-maven-plugin-0.4.14.jar -DgroupId=com.spotify -DartifactId=docker-maven-plugin -Dversion=0.4.14 -Dpackaging=jar
+
+mvn install:install-file -Dfile=http-request-6.0.jar -DgroupId=com.github.kevinsawicki -DartifactId=http-request -Dversion=6.0 -Dpackaging=jar
 ```
 
 ![image-20220318154658120](F:\编程学习\笔记\Typora\typoraNeed\Typora\typora-user-images\image-20220318154658120.png)
