@@ -1,14 +1,4 @@
-![image-20220802113244147](F:\编程学习\笔记\Typora\typoraNeed\Typora\typora-user-images\image-20220802113244147.png)
-
-![image-20220802113739192](F:\编程学习\笔记\Typora\typoraNeed\Typora\typora-user-images\image-20220802113739192.png)
-
-![image-20220802114232131](F:\编程学习\笔记\Typora\typoraNeed\Typora\typora-user-images\image-20220802114232131.png)
-
-docker run -itd --name nginx -p 8080:80 nginx
-
-
-
-docker安装nginx
+### docker安装nginx
 
 ```bash
 # 查看是否已经安装了nginx
@@ -107,7 +97,7 @@ docker run --name nginx -d -p 80:80 -v /usr/local/docker_nginx_data/conf/nginx.c
 
 ![image.png](https://www.hyluz.cn/zb_users/upload/2022/07/202207051656988463537819.png)
 
-## 总结 
+#### 总结 
 
 优点:非常安全，不涉及任何配置文件的修改，理论上一定可以成功(做好中间过程记录和文件备份)
 

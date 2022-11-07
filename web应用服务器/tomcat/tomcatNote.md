@@ -8,12 +8,14 @@
 tar -zxvf apache-tomcat-9.0.45.tar.gz 
 ```
 
-### 2、查询系统防火墙情况，如果防火墙开启则需要开启对应端口
+### 2、查询系统防火墙情况
 
 ```bash
 ##查询防火墙状态 
 systemctl status firewalld  
 ```
+
+### 3、开启对应端口
 
 以下状态则表示防火墙已开启，需要开放对应端口,未开启防火墙可跳过此步
 
@@ -32,9 +34,9 @@ firewall-cmd --reload
 
 
 
-### 3、设置开机自启
+### 4、设置开机自启
 
-#### 3.1 rc.local
+#### 4.1 rc.local
 
 ```bash
 #打开启动文件 
@@ -51,7 +53,7 @@ source /etc/profile
 
 
 
-#### 3.2 [配置为系统服务](https://blog.csdn.net/qq_43080036/article/details/90064320)
+#### 4.2 [配置为系统服务](https://blog.csdn.net/qq_43080036/article/details/90064320)
 
 一些服务器命令
 查看全部服务命令：systemctl list-unit-files --type service      ctrl+c可以回到命令输入
